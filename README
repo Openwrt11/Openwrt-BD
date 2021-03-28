@@ -1,0 +1,61 @@
+1 
+sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3 python2.7 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib antlr3 gperf wget curl swig rsync
+
+2 
+mkdir openwrt
+
+3 
+sudo chmod 777 openwrt
+
+4 
+cd openwrt
+
+5 
+git clone -b v18.06.9  https://github.com/openwrt/openwrt
+
+6 
+cd openwrt
+
+7 
+./scripts/feeds update -a
+
+8 
+./scripts/feeds install -a
+
+9 
+make menuconfig
+
+
+自定义组件
+kmod-leds-gpio kmod-fs-ext4 kmod-nls-cp936 kmod-nls-utf8 kmod-fs-nfs-v3 kmod-fs-nfs-v4 luci luci-app-commands luci-app-watchcat luci-app-arpbind luci-app-filetransfer luci-app-nfs luci-app-ramfree \
+  bridge openssh-sftp-server aircrack-ng 
+  
+  
+MTK修改添加型号
+target/linux/ramips/image/mt76x8.mk
+
+target/linux/ramips/dts/TL-WDR5620V3.dts
+
+target/linux/ramips/base-files/lib/upgrade/platform.sh
+
+target/linux/ramips/base-files/lib/ramips.sh
+
+target/linux/ramips/base-files/etc/board.d/02_network
+
+
+MTK修改Flash大小
+target/linux/ramips/image/mt76x8.mk
+
+target/linux/ramips/dts/TL-WDR5620V3.dts
+
+
+MTK修改LED显示
+target/linux/ramips/dts/TL-WDR5620V3.dts
+
+target/linux/ramips/base-files/etc/board.d/01_leds
+
+
+MTK修改Flash大小
+target/linux/ramips/image/mt76x8.mk
+
+target/linux/ramips/dts/TL-WDR5620V3.dts
