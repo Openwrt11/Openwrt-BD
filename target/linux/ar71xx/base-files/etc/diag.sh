@@ -9,6 +9,9 @@ get_status_led() {
 
 	case $board in
 
+	my-tenda-o3_v2)
+		status_led="$board:green:wlan"
+		;;
 	a40)
 		status_led="a40:green:status"
 		;;
@@ -21,7 +24,6 @@ get_status_led() {
 	all0305)
 		status_led="eap7660d:green:ds4"
 		;;
-	my-tenda-o3_v2|\
 	antminer-s1|\
 	antminer-s3|\
 	antminer-r1|\

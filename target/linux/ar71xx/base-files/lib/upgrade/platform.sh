@@ -202,7 +202,6 @@ platform_check_image() {
 	[ "$#" -gt 1 ] && return 1
 
 	case "$board" in
-	my-tenda-o3_v2|\
 	airgateway|\
 	airgatewaypro|\
 	airrouter|\
@@ -356,6 +355,7 @@ platform_check_image() {
 	mr16|\
 	zbt-we1526|\
 	zcn-1523h-2|\
+	my-tenda-o3_v2|\
 	zcn-1523h-5)
 		[ "$magic_long" != "68737173" -a "$magic_long" != "19852003" ] && {
 			echo "Invalid image type."
