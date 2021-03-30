@@ -11,7 +11,7 @@ ar71xx_setup_interfaces()
 	local board="$1"
 
 	case "$board" in
-	my-tenda-o3_v2)
+	tenda-o3_v2)
 		ucidef_set_interfaces_lan "eth1.1" "eth0"
 		ucidef_add_switch "switch0" \
 			"0@eth1" "4:lan"

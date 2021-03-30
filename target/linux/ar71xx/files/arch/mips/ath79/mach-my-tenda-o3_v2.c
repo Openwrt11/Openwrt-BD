@@ -1,5 +1,5 @@
 /*
- * Atheros MY-TENDA-O3_V2 reference board support
+ * MyMake TENDA-O3 Board
  *
  * Copyright (c) 2013-2015 The Linux Foundation. All rights reserved.
  * Copyright (c) 2012 Gabor Juhos <juhosg@openwrt.org>
@@ -34,87 +34,87 @@
 #include "dev-wmac.h"
 #include "machtypes.h"
 
-#define MY-TENDA-O3_V2_GPIO_LED_WAN		11
-#define MY-TENDA-O3_V2_GPIO_LED_LAN		11
-#define MY-TENDA-O3_V2_GPIO_LED_LINK1		12
-#define MY-TENDA-O3_V2_GPIO_LED_LINK2		13
-#define MY-TENDA-O3_V2_GPIO_LED_LINK3		14
+#define TENDA-O3_GPIO_LED_WAN		11
+#define TENDA-O3_GPIO_LED_LAN		11
+#define TENDA-O3_GPIO_LED_LINK1		12
+#define TENDA-O3_GPIO_LED_LINK2		13
+#define TENDA-O3_GPIO_LED_LINK3		14
 
-#define MY-TENDA-O3_V2_GPIO_BTN_RESET		17
+#define TENDA-O3_GPIO_BTN_RESET		17
 
-#define MY-TENDA-O3_V2_KEYS_POLL_INTERVAL	20	/* msecs */
-#define MY-TENDA-O3_V2_KEYS_DEBOUNCE_INTERVAL	(3 * MY-TENDA-O3_V2_KEYS_POLL_INTERVAL)
+#define TENDA-O3_KEYS_POLL_INTERVAL	20	/* msecs */
+#define TENDA-O3_KEYS_DEBOUNCE_INTERVAL	(3 * TENDA-O3_KEYS_POLL_INTERVAL)
 
-#define MY-TENDA-O3_V2_MAC0_OFFSET		0
-#define MY-TENDA-O3_V2_MAC1_OFFSET		6
-#define MY-TENDA-O3_V2_WMAC_CALDATA_OFFSET	0x1000
+#define TENDA-O3_MAC0_OFFSET		0
+#define TENDA-O3_MAC1_OFFSET		6
+#define TENDA-O3_WMAC_CALDATA_OFFSET	0x1000
 
-static struct gpio_keys_button my-tenda-o3_v2_gpio_keys[] __initdata = {
+static struct gpio_keys_button tenda-o3_gpio_keys[] __initdata = {
 	{
 		.desc		= "Reset",
 		.type		= EV_KEY,
 		.code		= KEY_RESTART,
-		.debounce_interval = MY-TENDA-O3_V2_KEYS_DEBOUNCE_INTERVAL,
-		.gpio		= MY-TENDA-O3_V2_GPIO_BTN_RESET,
+		.debounce_interval = TENDA-O3_KEYS_DEBOUNCE_INTERVAL,
+		.gpio		= TENDA-O3_GPIO_BTN_RESET,
 		.active_low	= 1,
 	},
 };
 
-static struct gpio_led MY-TENDA-O3_V2_v5_leds_gpio[] __initdata = {
+static struct gpio_led TENDA-O3_v5_leds_gpio[] __initdata = {
 
 	{
-		.name		= "my-tenda-o3-v2:green:lan1",
-		.gpio		= MY-TENDA-O3_V2_GPIO_LED_LAN1,
+		.name		= "tenda-o3-v2:green:lan1",
+		.gpio		= TENDA-O3_V2_GPIO_LED_LAN1,
 		.active_low	= 1,
 	}, {
-		.name		= "my-tenda-o3-v2:green:lan2",
-		.gpio		= MY-TENDA-O3_V2_GPIO_LED_LAN2,
+		.name		= "tenda-o3-v2:green:lan2",
+		.gpio		= TENDA-O3_V2_GPIO_LED_LAN2,
 		.active_low	= 1,
 	}, {
-		.name		= "my-tenda-o3-v2:green:wlan",
-		.gpio		=  MY-TENDA-O3_V2_GPIO_LED_WLAN,
+		.name		= "tenda-o3-v2:green:wlan",
+		.gpio		=  TENDA-O3_V2_GPIO_LED_WLAN,
 		.active_low	= 1,
 	},{
-		.name		= "my-tenda-o3-v2:red:link1",
-		.gpio		= MY-TENDA-O3_V2_GPIO_LED_LINK1,
+		.name		= "tenda-o3-v2:red:link1",
+		.gpio		= TENDA-O3_V2_GPIO_LED_LINK1,
 		.active_low	= 1,
 	}, {
-		.name		= "my-tenda-o3-v2:blue:link2",
-		.gpio		= MY-TENDA-O3_V2_GPIO_LED_LINK2,
+		.name		= "tenda-o3-v2:blue:link2",
+		.gpio		= TENDA-O3_V2_GPIO_LED_LINK2,
 		.active_low	= 1,
 	}, {
-		.name		= "my-tenda-o3-v2:green:link3",
-		.gpio		= MY-TENDA-O3_V2_GPIO_LED_LINK3,
+		.name		= "tenda-o3-v2:green:link3",
+		.gpio		= TENDA-O3_V2_GPIO_LED_LINK3,
 		.active_low	= 1,
 	},  
 };
 
-static void __init MY-TENDA-O3_V2_gpio_led_setup(void)
+static void __init TENDA-O3_gpio_led_setup(void)
 {
-	ath79_gpio_direction_select(MY-TENDA-O3_V2_GPIO_GPIO_LED_LAN1, true);
-	ath79_gpio_direction_select(MY-TENDA-O3_V2_GPIO_GPIO_LED_WLAN, true);
-	ath79_gpio_direction_select(MY-TENDA-O3_V2_GPIO_GPIO_LED_LINK1, true);
-	ath79_gpio_direction_select(MY-TENDA-O3_V2_GPIO_GPIO_LED_LINK2, true);
-	ath79_gpio_direction_select(MY-TENDA-O3_V2_GPIO_GPIO_LED_LINK3, true);
+	ath79_gpio_direction_select(TENDA-O3_GPIO_GPIO_LED_LAN1, true);
+	ath79_gpio_direction_select(TENDA-O3_GPIO_GPIO_LED_WLAN, true);
+	ath79_gpio_direction_select(TENDA-O3_GPIO_GPIO_LED_LINK1, true);
+	ath79_gpio_direction_select(TENDA-O3_GPIO_GPIO_LED_LINK2, true);
+	ath79_gpio_direction_select(TENDA-O3_GPIO_GPIO_LED_LINK3, true);
 
 		/* Mute LEDs on boot */
-	gpio_set_value(MY-TENDA-O3_V2_GPIO_LED_WLAN, 1);
-	gpio_set_value(MY-TENDA-O3_V2_GPIO_LED_LAN1, 1);
-	gpio_set_value(MY-TENDA-O3_V2_GPIO_LED_LINK1, 1);
-	gpio_set_value(MY-TENDA-O3_V2_GPIO_LED_LINK2, 1);
-	gpio_set_value(MY-TENDA-O3_V2_GPIO_LED_LINK3, 1);
+	gpio_set_value(TENDA-O3_GPIO_LED_WLAN, 1);
+	gpio_set_value(TENDA-O3_GPIO_LED_LAN1, 1);
+	gpio_set_value(TENDA-O3_GPIO_LED_LINK1, 1);
+	gpio_set_value(TENDA-O3_GPIO_LED_LINK2, 1);
+	gpio_set_value(TENDA-O3_GPIO_LED_LINK3, 1);
 
-	ath79_gpio_output_select(MY-TENDA-O3_V2_GPIO_LED_WLAN, 0);
-	ath79_gpio_output_select(MY-TENDA-O3_V2_GPIO_LED_LAN1, 0);
-	ath79_gpio_output_select(MY-TENDA-O3_V2_GPIO_LED_LINK1, 0);
-	ath79_gpio_output_select(MY-TENDA-O3_V2_GPIO_LED_LINK2, 0);
-	ath79_gpio_output_select(MY-TENDA-O3_V2_GPIO_LED_LINK3, 0);
+	ath79_gpio_output_select(TENDA-O3_GPIO_LED_WLAN, 0);
+	ath79_gpio_output_select(TENDA-O3_GPIO_LED_LAN1, 0);
+	ath79_gpio_output_select(TENDA-O3_GPIO_LED_LINK1, 0);
+	ath79_gpio_output_select(TENDA-O3_GPIO_LED_LINK2, 0);
+	ath79_gpio_output_select(TENDA-O3_GPIO_LED_LINK3, 0);
 	
-	ath79_register_leds_gpio(-1, ARRAY_SIZE(my-tenda-o3-v2_leds_gpio),
-			my-tenda-o3-v2_leds_gpio);
+	ath79_register_leds_gpio(-1, ARRAY_SIZE(tenda-o3_leds_gpio),
+			tenda-o3_leds_gpio);
 }
 
-static void __init my-tenda-o3-v2_setup(void)
+static void __init tenda-o3_setup(void)
 {
 	u8 *art = (u8 *) KSEG1ADDR(0x1fff0000);
 
@@ -123,22 +123,22 @@ static void __init my-tenda-o3-v2_setup(void)
 	/* Disable JTAG (enables GPIO0-3) */
 	ath79_gpio_function_enable(AR934X_GPIO_FUNC_JTAG_DISABLE);
 
-	ath79_register_gpio_keys_polled(-1, my-tenda-o3-v2_KEYS_POLL_INTERVAL,
-			ARRAY_SIZE(my-tenda-o3-v2_gpio_keys),
-			my-tenda-o3-v2_gpio_keys);
+	ath79_register_gpio_keys_polled(-1, TENDA-O3_KEYS_POLL_INTERVAL,
+			ARRAY_SIZE(tenda-o3_gpio_keys),
+			tenda-o3_gpio_keys);
 
-	my-tenda-o3-v2_gpio_led_setup();
+	tenda-o3_gpio_led_setup();
 
 	//ath79_register_usb();
 
-	ath79_wmac_set_led_pin(MY-TENDA-O3_V2_GPIO_LED_WLAN);
-	ath79_register_wmac(art + MY-TENDA-O3_V2_WMAC_CALDATA_OFFSET, NULL);
+	ath79_wmac_set_led_pin(TENDA-O3_GPIO_LED_WLAN);
+	ath79_register_wmac(art + TENDA-O3_WMAC_CALDATA_OFFSET, NULL);
 
 	ath79_register_mdio(0, 0x0);
 	ath79_register_mdio(1, 0x0);
 
-	ath79_init_mac(ath79_eth0_data.mac_addr, art + MY-TENDA-O3_V2_MAC0_OFFSET, 0);
-	ath79_init_mac(ath79_eth1_data.mac_addr, art + MY-TENDA-O3_V2_MAC1_OFFSET, 0);
+	ath79_init_mac(ath79_eth0_data.mac_addr, art + TENDA-O3_MAC0_OFFSET, 0);
+	ath79_init_mac(ath79_eth1_data.mac_addr, art + TENDA-O3_MAC1_OFFSET, 0);
 
 	/* WAN port */
 	ath79_eth0_data.phy_if_mode = PHY_INTERFACE_MODE_MII;
@@ -156,5 +156,4 @@ static void __init my-tenda-o3-v2_setup(void)
 	ath79_register_eth(1);
 }
 
-MIPS_MACHINE(ATH79_MACH_MY-TENDA-O3_V2, "MY-TENDA-O3_V2", "MY-TENDA-O3_V2 reference board",
-	     MY-TENDA-O3_V2_setup);
+MIPS_MACHINE(ATH79_MACH_TENDA-O3_V2, "TENDA-O3_V2", "MYMAKE TENDA-O3_V2",tenda-o3_setup);

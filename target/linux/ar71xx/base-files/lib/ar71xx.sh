@@ -546,8 +546,8 @@ ar71xx_board_detect() {
 	machine=$(awk 'BEGIN{FS="[ \t]+:[ \t]"} /machine/ {print $2}' /proc/cpuinfo)
 
 	case "$machine" in
-	*"MY-TENDA-O3_V2")
-		name="my-tenda-o3_v2"
+	*"TENDA-O3_V2")
+		name="tenda-o3_v2"
 		;;
 	*"A40")
 		name="a40"

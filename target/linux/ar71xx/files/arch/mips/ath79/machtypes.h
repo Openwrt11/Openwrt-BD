@@ -15,7 +15,7 @@
 #include <asm/mips_machine.h>
 
 enum ath79_mach_type {
-	ATH79_MACH_MY-TENDA-O3_V2,		/* MY-TENDA-O3_V2 board */
+	ATH79_MACH_TENDA-O3_V2,		/* Make TENDA-O3_V2 board */
 	ATH79_MACH_GENERIC_OF = -1,	/* Device tree board */
 	ATH79_MACH_GENERIC = 0,
 	ATH79_MACH_A40,				/* OpenMesh A40 */

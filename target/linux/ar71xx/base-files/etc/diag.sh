@@ -9,7 +9,7 @@ get_status_led() {
 
 	case $board in
 
-	my-tenda-o3_v2)
+	tenda-o3_v2)
 		status_led="$board:green:wlan"
 		;;
 	a40)

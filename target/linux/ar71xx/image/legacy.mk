@@ -897,8 +897,8 @@ $(eval $(call SingleProfile,AthLzma,64k,DB120,db120,DB120,ttyS0,115200,$$(db120_
 $(eval $(call SingleProfile,AthLzma,64k,HORNETUBx2,hornet-ub-x2,HORNET-UB,ttyATH0,115200,$$(alfa_mtdlayout_16M),KRuImage,65536))
 $(eval $(call SingleProfile,AthLzma,64k,TUBE2H16M,tube2h-16M,TUBE2H,ttyATH0,115200,$$(alfa_mtdlayout_16M),KRuImage,65536))
 
-$(eval $(call SingleProfile,AthLzma,64k,MY-TENDA-O3_V2_8M,my-tenda-o3-v2-8M,MY-TENDA-O3_V2,ttyS0,115200,$$(ap143_mtdlayout_8M),RKuImage))
-$(eval $(call SingleProfile,AthLzma,64k,MY-TENDA-O3_V2_16M,my-tenda-o3-v2-16M,MY-TENDA-O3_V2,ttyS0,115200,$$(ap143_mtdlayout_16M),RKuImage))
+$(eval $(call SingleProfile,AthLzma,64k,TENDA-O3_V2_8M,tenda-o3-v2-8M,TENDA-O3_V2,ttyS0,115200,$$(mymake953_mtdlayout_8M),RKuImage))
+$(eval $(call SingleProfile,AthLzma,64k,TENDA-O3_V2_16M,tenda-o3-v2-16M,TENDA-O3_V2,ttyS0,115200,$$(mymake953_mtdlayout_16M),RKuImage))
 
 $(eval $(call SingleProfile,Belkin,64k,F9K1115V2,f9k1115v2,F9K1115V2,ttyS0,115200,$$(f9k1115v2_mtdlayout),BR-6679BAC))
 
