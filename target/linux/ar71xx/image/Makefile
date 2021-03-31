@@ -17,7 +17,7 @@ include ./generic.mk
 #include ./generic-legacy-devices.mk
 #include ./generic-senao.mk
 #include ./generic-tp-link.mk
-include ./mymake.mk
+include ./make.mk
 endif
 ifeq ($(SUBTARGET),tiny)
 include ./tiny-tp-link.mk

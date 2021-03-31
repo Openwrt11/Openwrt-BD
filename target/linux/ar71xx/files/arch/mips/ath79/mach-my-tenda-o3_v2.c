@@ -1,5 +1,5 @@
 /*
- * MyMake TENDA-O3 Board
+ * MAKE TENDA-O3-V2 Board
  *
  * Copyright (c) 2013-2015 The Linux Foundation. All rights reserved.
  * Copyright (c) 2012 Gabor Juhos <juhosg@openwrt.org>
@@ -60,31 +60,31 @@ static struct gpio_keys_button tenda-o3_gpio_keys[] __initdata = {
 	},
 };
 
-static struct gpio_led TENDA-O3_v5_leds_gpio[] __initdata = {
+static struct gpio_led TENDA-O3_leds_gpio[] __initdata = {
 
 	{
 		.name		= "tenda-o3-v2:green:lan1",
-		.gpio		= TENDA-O3_V2_GPIO_LED_LAN1,
+		.gpio		= TENDA-O3_GPIO_LED_LAN1,
 		.active_low	= 1,
 	}, {
 		.name		= "tenda-o3-v2:green:lan2",
-		.gpio		= TENDA-O3_V2_GPIO_LED_LAN2,
+		.gpio		= TENDA-O3_GPIO_LED_LAN2,
 		.active_low	= 1,
 	}, {
 		.name		= "tenda-o3-v2:green:wlan",
-		.gpio		=  TENDA-O3_V2_GPIO_LED_WLAN,
+		.gpio		=  TENDA-O3_GPIO_LED_WLAN,
 		.active_low	= 1,
 	},{
 		.name		= "tenda-o3-v2:red:link1",
-		.gpio		= TENDA-O3_V2_GPIO_LED_LINK1,
+		.gpio		= TENDA-O3_GPIO_LED_LINK1,
 		.active_low	= 1,
 	}, {
 		.name		= "tenda-o3-v2:blue:link2",
-		.gpio		= TENDA-O3_V2_GPIO_LED_LINK2,
+		.gpio		= TENDA-O3_GPIO_LED_LINK2,
 		.active_low	= 1,
 	}, {
 		.name		= "tenda-o3-v2:green:link3",
-		.gpio		= TENDA-O3_V2_GPIO_LED_LINK3,
+		.gpio		= TENDA-O3_GPIO_LED_LINK3,
 		.active_low	= 1,
 	},  
 };
@@ -156,4 +156,4 @@ static void __init tenda-o3_setup(void)
 	ath79_register_eth(1);
 }
 
-MIPS_MACHINE(ATH79_MACH_TENDA-O3_V2, "TENDA-O3_V2", "MYMAKE TENDA-O3_V2",tenda-o3_setup);
+MIPS_MACHINE(ATH79_MACH_TENDA-O3-V2, "TENDA-O3-V2", "MAKE TENDA-O3-V2",tenda-o3_v2_setup);

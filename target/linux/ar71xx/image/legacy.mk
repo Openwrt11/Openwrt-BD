@@ -221,6 +221,14 @@ define Build/Clean
 	$(LOADER_MAKE) clean
 endef
 
+make953_mtdlayout_8M=mtdparts=spi0.0:256k(u-boot)ro,64k(u-boot-env)ro,6336k(rootfs),1408k(kernel),64k(nvram),64k(art)ro,7744k@0x50000(firmware)
+make953_mtdlayout_16M=mtdparts=spi0.0:256k(u-boot)ro,64k(u-boot-env)ro,14528k(rootfs),1408k(kernel),64k(nvram),64k(art)ro,15936k@0x50000(firmware)
+make953_mtdlayout_8M=mtdparts=spi0.0:256k(u-boot)ro,64k(u-boot-env)ro,6336k(rootfs),1472k(kernel),64k(art)ro,7744k@0x50000(firmware)
+make953_mtdlayout_16M=mtdparts=spi0.0:256k(u-boot)ro,64k(u-boot-env)ro,14528k(rootfs),1472k(kernel),64k(art)ro,16000k@0x50000(firmware)
+make953_mtdlayout=mtdparts=spi0.0:256k(u-boot)ro,64k(u-boot-env)ro,14528k(rootfs),1472k(kernel),64k(art)ro,16000k@0x50000(firmware)
+make953_mtdlayout=mtdparts=spi0.0:256k(u-boot)ro,64k(art),1536k(kernel),14400k(rootfs),64k(configs),64k(art-backup)ro,15936k@0x50000(firmware)
+make953_mtdlayout_16M=mtdparts=spi0.0:256k(u-boot)ro,64k(u-boot-env)ro,14528k(rootfs),1472k(kernel),64k(art)ro,16000k@0x50000(firmware)
+#db120_mtdlayout=mtdparts=spi0.0:256k(u-boot)ro,64k(u-boot-env)ro,6336k(rootfs),1408k(kernel),64k(nvram),64k(art)ro,
 alfa_ap120c_mtdlayout=mtdparts=spi0.0:256k(u-boot)ro,64k(u-boot-env)ro,13312k(rootfs),1536k(kernel),1152k(unknown)ro,64k(art)ro;spi0.1:-(unknown)
 alfa_ap96_mtdlayout=mtdparts=spi0.0:256k(u-boot)ro,256k(u-boot-env)ro,13312k(rootfs),2048k(kernel),512k(caldata)ro,15360k@0x80000(firmware)
 alfa_mtdlayout_8M=mtdparts=spi0.0:256k(u-boot)ro,64k(u-boot-env)ro,6144k(rootfs),1600k(kernel),64k(nvram),64k(art)ro,7744k@0x50000(firmware)
@@ -897,8 +905,8 @@ $(eval $(call SingleProfile,AthLzma,64k,DB120,db120,DB120,ttyS0,115200,$$(db120_
 $(eval $(call SingleProfile,AthLzma,64k,HORNETUBx2,hornet-ub-x2,HORNET-UB,ttyATH0,115200,$$(alfa_mtdlayout_16M),KRuImage,65536))
 $(eval $(call SingleProfile,AthLzma,64k,TUBE2H16M,tube2h-16M,TUBE2H,ttyATH0,115200,$$(alfa_mtdlayout_16M),KRuImage,65536))
 
-$(eval $(call SingleProfile,AthLzma,64k,TENDA-O3_V2_8M,tenda-o3-v2-8M,TENDA-O3_V2,ttyS0,115200,$$(mymake953_mtdlayout_8M),RKuImage))
-$(eval $(call SingleProfile,AthLzma,64k,TENDA-O3_V2_16M,tenda-o3-v2-16M,TENDA-O3_V2,ttyS0,115200,$$(mymake953_mtdlayout_16M),RKuImage))
+$(eval $(call SingleProfile,AthLzma,64k,TENDA-O3_V2_8M,tenda-o3-v2-8M,TENDA-O3-V2,ttyS0,115200,$$(make953_mtdlayout_8M),RKuImage))
+$(eval $(call SingleProfile,AthLzma,64k,TENDA-O3_V2_16M,tenda-o3-v2-16M,TENDA-O3-V2,ttyS0,115200,$$(make953_mtdlayout_16M),RKuImage))
 
 $(eval $(call SingleProfile,Belkin,64k,F9K1115V2,f9k1115v2,F9K1115V2,ttyS0,115200,$$(f9k1115v2_mtdlayout),BR-6679BAC))
 
