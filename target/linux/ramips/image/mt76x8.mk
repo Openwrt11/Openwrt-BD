@@ -94,7 +94,10 @@ define Device/my-tl-wdr5620-v3
   DTS := MY-TL-WDR5620-V3
   IMAGE_SIZE := 7872k
   DEVICE_TITLE := TPLINK MY-TL-WDR5620-V3
-  DEVICE_PACKAGES := luci openssh-sftp-server aircrack-ng
+  DEVICE_PACKAGES := rssileds kmod-leds-gpio \
+	kmod-fs-ext4 kmod-nls-cp936 kmod-nls-utf8 kmod-fs-nfs-v3 kmod-fs-nfs-v4 \
+	luci luci-app-commands luci-app-watchcat luci-proto-relay luci-app-arpbind luci-app-filetransfer luci-app-nfs luci-app-ramfree \
+	bridge zram-swap openssh-sftp-server aircrack-ng ppp-mod-pptp e2fsprogs mount-utils nfs-utils screen
 endef
 TARGET_DEVICES += my-tl-wdr5620-v3
 
@@ -102,7 +105,10 @@ define Device/tl-wdr5620-v3
   DTS := TL-WDR5620-V3
   IMAGE_SIZE := 7872k
   DEVICE_TITLE := TPLINK TL-WDR5620-V3
-  DEVICE_PACKAGES := luci openssh-sftp-server
+  DEVICE_PACKAGES := rssileds kmod-leds-gpio \
+	kmod-fs-ext4 kmod-nls-cp936 kmod-nls-utf8 kmod-fs-nfs-v3 kmod-fs-nfs-v4 \
+	luci luci-app-commands luci-app-watchcat luci-proto-relay luci-app-arpbind luci-app-filetransfer luci-app-nfs luci-app-ramfree \
+	bridge zram-swap openssh-sftp-server aircrack-ng ppp-mod-pptp e2fsprogs mount-utils nfs-utils screen
 endef
 TARGET_DEVICES += tl-wdr5620-v3
 
